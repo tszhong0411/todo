@@ -75,7 +75,7 @@ const Todo = (props: TodoProps) => {
   const addTask = async (text: string, onSuccess: () => void) => {
     if (!text) return toast.error('Text is required')
 
-    const loading = toast.loading('Updating ...')
+    const loading = toast.loading('Adding ...')
 
     setIsFetching(true)
 
