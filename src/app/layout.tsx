@@ -4,6 +4,7 @@ import React from 'react'
 
 import '@/styles/globals.css'
 
+import Analytics from '@/components/Analytics'
 import CustomToaster from '@/components/CustomToaster'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
@@ -27,6 +28,7 @@ const RootLayout = (props: RootLayoutProps) => {
         </main>
         <Footer />
         <CustomToaster />
+        <Analytics />
       </body>
     </html>
   )
