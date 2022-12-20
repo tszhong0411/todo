@@ -7,8 +7,6 @@ import { useRouter } from 'next/navigation'
 import React from 'react'
 import { toast } from 'react-hot-toast'
 
-import { ERROR_MESSAGE } from '@/config/message'
-
 type TodoProps = {
   tasks: Task[]
 }
@@ -23,63 +21,65 @@ const Todo = (props: TodoProps) => {
   const isMutating = isFetching || isPending
 
   const updateTask = async (id: string) => {
+    const loading = toast.loading('Updating ...')
+
     setIsFetching(true)
 
-    const res = fetch(`/api/tasks/${id}`, {
+    const res = await fetch(`/api/tasks/${id}`, {
       method: 'PUT',
     })
 
-    toast.promise(res, {
-      loading: 'Updating ...',
-      success: (data) => {
-        if (data.status !== 204) throw new Error(ERROR_MESSAGE)
+    if (!res.ok) {
+      toast.dismiss(loading)
+      toast.error(await res.text())
 
-        refresh()
-
-        return 'Updated successfully'
-      },
-      error: ERROR_MESSAGE,
-    })
+      return
+    }
 
     setIsFetching(false)
 
     startTransition(() => {
       refresh()
+
+      toast.dismiss(loading)
+      toast.success('Updated successfully')
     })
   }
 
   const deleteTask = async (id: string) => {
+    const loading = toast.loading('Deleting ...')
+
     setIsFetching(true)
 
-    const res = fetch(`/api/tasks/${id}`, {
+    const res = await fetch(`/api/tasks/${id}`, {
       method: 'DELETE',
     })
 
-    toast.promise(res, {
-      loading: 'Deleting ...',
-      success: (data) => {
-        if (data.status !== 204) throw new Error(ERROR_MESSAGE)
+    if (!res.ok) {
+      toast.dismiss(loading)
+      toast.error(await res.text())
 
-        refresh()
-
-        return 'Deleted successfully'
-      },
-      error: ERROR_MESSAGE,
-    })
+      return
+    }
 
     setIsFetching(false)
 
     startTransition(() => {
       refresh()
+
+      toast.dismiss(loading)
+      toast.success('Deleted successfully')
     })
   }
 
   const addTask = async (text: string, onSuccess: () => void) => {
     if (!text) return toast.error('Text is required')
 
+    const loading = toast.loading('Updating ...')
+
     setIsFetching(true)
 
-    const res = fetch(`/api/tasks`, {
+    const res = await fetch(`/api/tasks`, {
       method: 'POST',
       body: JSON.stringify({
         text,
@@ -89,23 +89,21 @@ const Todo = (props: TodoProps) => {
       },
     })
 
-    toast.promise(res, {
-      loading: 'Adding ...',
-      success: (data) => {
-        if (data.status !== 200) throw new Error(ERROR_MESSAGE)
+    if (!res.ok) {
+      toast.dismiss(loading)
+      toast.error(await res.text())
 
-        refresh()
-        onSuccess()
-
-        return 'Added successfully'
-      },
-      error: ERROR_MESSAGE,
-    })
+      return
+    }
 
     setIsFetching(false)
 
     startTransition(() => {
       refresh()
+
+      toast.dismiss(loading)
+      toast.success('Added successfully')
+      onSuccess()
     })
   }
 
