@@ -1,21 +1,17 @@
 {
   "name": "todo",
-  "author": "小康 <info@honghong.me>",
-  "license": "MIT",
   "private": true,
+  "version": "1.0.0",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "eslint src --fix && yarn format",
-    "lint:strict": "eslint --max-warnings=0 src",
     "format": "prettier -w .",
-    "format:check": "prettier -c .",
     "type-check": "tsc --noEmit",
-    "prepare": "husky install",
-    "prisma:studio": "dotenv -e .env.local -- prisma studio",
-    "prisma:migrate": "dotenv -e .env.local -- prisma migrate dev"
+    "prepare": "husky install"
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.5",
