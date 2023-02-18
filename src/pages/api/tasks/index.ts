@@ -14,7 +14,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { id } = session.user
 
   if (req.method === 'POST') {
-    if (!text) return res.status(400).send('Text is required')
+    if (!text) return res.status(400).send('內容不能為空')
 
     await prisma.task.create({
       data: {

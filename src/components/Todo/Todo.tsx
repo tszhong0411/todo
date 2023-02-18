@@ -21,7 +21,7 @@ const Todo = (props: TodoProps) => {
   const isMutating = isFetching || isPending
 
   const updateTask = async (id: string) => {
-    const loading = toast.loading('Updating ...')
+    const loading = toast.loading('更新中 ...')
 
     setIsFetching(true)
 
@@ -42,12 +42,12 @@ const Todo = (props: TodoProps) => {
       refresh()
 
       toast.dismiss(loading)
-      toast.success('Updated successfully')
+      toast.success('成功更新')
     })
   }
 
   const deleteTask = async (id: string) => {
-    const loading = toast.loading('Deleting ...')
+    const loading = toast.loading('刪除中 ...')
 
     setIsFetching(true)
 
@@ -68,14 +68,14 @@ const Todo = (props: TodoProps) => {
       refresh()
 
       toast.dismiss(loading)
-      toast.success('Deleted successfully')
+      toast.success('成功刪除')
     })
   }
 
   const addTask = async (text: string, onSuccess: () => void) => {
-    if (!text) return toast.error('Text is required')
+    if (!text) return toast.error('內容不能為空')
 
-    const loading = toast.loading('Adding ...')
+    const loading = toast.loading('新增中 ...')
 
     setIsFetching(true)
 
@@ -102,19 +102,19 @@ const Todo = (props: TodoProps) => {
       refresh()
 
       toast.dismiss(loading)
-      toast.success('Added successfully')
+      toast.success('成功新增')
       onSuccess()
     })
   }
 
   return (
     <>
-      <h1 className='text-center text-4xl font-bold'>TODO List</h1>
+      <h1 className='text-center text-4xl font-bold'>待辦事項</h1>
       <div className='relative'>
         <input
           type='text'
           className='my-8 w-full rounded-lg border border-zinc-600 bg-zinc-700 p-4 text-sm text-white placeholder-gray-400 outline-none focus:border-zinc-500'
-          placeholder='What needs to be done?'
+          placeholder='需要做什麼？'
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
@@ -122,7 +122,7 @@ const Todo = (props: TodoProps) => {
           onClick={() => addTask(value, () => setValue(''))}
           className='absolute top-10 right-4 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white outline-none transition-colors duration-300 hover:bg-blue-700'
         >
-          Add
+          新增
         </button>
       </div>
       <div
