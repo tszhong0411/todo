@@ -25,18 +25,6 @@
 - Analytics: [Vercel](https://vercel.com/)
 - Styling: [Tailwindcss](https://tailwindcss.com)
 
-## 🚀 Demo
-
-<img src="https://img.shields.io/badge/website-todo.honghong.me-blue?style=flat-square&color=black" />
-
-<img src="https://img.shields.io/github/repo-size/tszhong0411/todo?style=flat-square&color=green" />
-
-<img src="https://img.shields.io/github/languages/top/tszhong0411/todo?style=flat-square" />
-
-<img src="https://img.shields.io/github/commit-activity/m/tszhong0411/todo?color=orange&style=flat-square" />
-
-<img src="https://img.shields.io/github/deployments/tszhong0411/todo/Production?style=flat-square" />
-
 ## 👋 Running locally
 
 1. Clone this repo
