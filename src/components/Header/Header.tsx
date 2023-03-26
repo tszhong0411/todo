@@ -1,26 +1,22 @@
-'use client'
+import Image from 'next/image'
 
-import Link from 'next/link'
-import { signOut } from 'next-auth/react'
-
-import Logo from '../Logo'
+import SignOutButton from './SignOutButton'
 
 const Header = () => {
   return (
     <header className='relative flex h-16 w-full items-center justify-center'>
-      <Link
-        href='/'
-        className='mx-auto flex max-w-4xl items-center justify-center gap-2'
-      >
-        <Logo width={24} height={24} />
-        <div>TODO</div>
-      </Link>
-      <button
-        className='absolute top-2.5 right-4 rounded-lg bg-zinc-700 px-4 py-2 transition-colors duration-300 hover:bg-zinc-600'
-        onClick={() => signOut()}
-      >
-        登出
-      </button>
+      <div className='flex items-center gap-2'>
+        <Image
+          src='https://honghong.me/static/images/avatar.png'
+          width={40}
+          height={40}
+          alt='Logo'
+          className='rounded-full'
+          priority
+        />
+        Todo
+      </div>
+      <SignOutButton />
     </header>
   )
 }

@@ -1,37 +1,18 @@
 import { redirect } from 'next/navigation'
+import { getServerSession } from 'next-auth'
 
-import prisma from '@/lib/prisma'
-import { getCurrentUser } from '@/lib/session'
+import { authOptions } from '@/lib/auth'
 
 import Todo from '@/components/Todo'
 
-const getTasks = async (id: string) => {
-  const tasks = await prisma.task.findMany({
-    where: {
-      authorId: id,
-    },
-    orderBy: {
-      created_at: 'desc',
-    },
-  })
-
-  return tasks
-}
-
 const HomePage = async () => {
-  const user = await getCurrentUser()
+  const session = await getServerSession(authOptions)
 
-  if (!user) {
-    return redirect('/api/auth/signin')
+  if (!session || !session.user) {
+    redirect('/api/auth/signin')
   }
 
-  const tasks = await getTasks(user.id)
-
-  return (
-    <>
-      <Todo tasks={tasks} />
-    </>
-  )
+  return <Todo user={session.user} />
 }
 
 export default HomePage

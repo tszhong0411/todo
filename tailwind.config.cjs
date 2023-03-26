@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        default: ['var(--font-inter)'],
+        default: ['var(--font-inter)', 'var(--font-noto-sans-tc)'],
       },
     },
   },

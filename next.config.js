@@ -2,7 +2,14 @@
 const nextConfig = {
   experimental: {
     appDir: true,
+    typedRoutes: true,
   },
+
+  images: {
+    domains: ['honghong.me'],
+  },
+
+  transpilePackages: ['@tabler/icons-react'],
 }
 
-module.exports = nextConfig
+export default nextConfig
