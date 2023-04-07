@@ -7,45 +7,45 @@
 </p>
 
 <p align="center">
-    <a href="https://todo.honghong.me" target="blank">線上查看</a>
+    <a href="https://todo.honghong.me" target="blank">View Online</a>
     ·
-    <a href="https://github.com/tszhong0411/todo/issues/new/choose">回報錯誤</a>
+    <a href="https://github.com/tszhong0411/todo/issues/new/choose">Report Bug</a>
     ·
-    <a href="https://github.com/tszhong0411/todo/issues/new/choose">要求新功能</a>
+    <a href="https://github.com/tszhong0411/todo/issues/new/choose">Request New Feature</a>
 </p>
 
 ## 🌍 todo.honghong.me
 
-- 框架: [Next.js](https://nextjs.org/)
-- 數據庫: [Supabase](https://supabase.com/)
+- Framework: [Next.js](https://nextjs.org/)
+- Database: [Supabase](https://supabase.com/)
 - ORM: [Prisma](https://prisma.io/)
-- 身份驗證: [NextAuth.js](https://next-auth.js.org/)
-- 部署: [Vercel](https://vercel.com)
-- 網站圖標: [realfavicongenerator](https://realfavicongenerator.net/)
-- 分析: [Vercel](https://vercel.com/)
-- 樣式: [Tailwindcss](https://tailwindcss.com)
+- Authentication: [NextAuth.js](https://next-auth.js.org/)
+- Deployment: [Vercel](https://vercel.com)
+- Favicon: [realfavicongenerator](https://realfavicongenerator.net/)
+- Analytics: [Vercel](https://vercel.com/)
+- Styling: [Tailwindcss](https://tailwindcss.com)
 
-## 👋 在本地運行
+## 👋 Running Locally
 
-1. Clone 這個倉庫
+1. Clone the repository
 
 ```sh
 git clone https://github.com/tszhong0411/todo.git
 ```
 
-2. 更改目錄
+2. Go to the project directory
 
 ```sh
 cd todo
 ```
 
-3. 安裝 packages
+3. Install dependencies
 
 ```sh
 yarn
 ```
 
-4. 新增一個 `.env.local`，根據 `.env.example` 輸入一些環境變量，這樣就可以正常運行了。
+4. Create a `.env.local` file and input environment variables based on the `.env.example` file so that the project can run properly.
 
 ```txt
 DATABASE_URL=<Your env>
@@ -62,5 +62,5 @@ EMAIL_FROM=<Your env>
 
 <hr>
 <p align="center">
-用 ❤️ 製作在 Hong Kong
+Made with ❤️ in Hong Kong
 </p>
