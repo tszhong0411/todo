@@ -17,9 +17,6 @@
 ## 🌍 todo.honghong.me
 
 - Framework: [Next.js](https://nextjs.org/)
-- Database: [Supabase](https://supabase.com/)
-- ORM: [Prisma](https://prisma.io/)
-- Authentication: [NextAuth.js](https://next-auth.js.org/)
 - Deployment: [Vercel](https://vercel.com)
 - Favicon: [realfavicongenerator](https://realfavicongenerator.net/)
 - Analytics: [Vercel](https://vercel.com/)
@@ -45,22 +42,7 @@ cd todo
 yarn
 ```
 
-4. Create a `.env.local` file and input environment variables based on the `.env.example` file so that the project can run properly.
-
-```txt
-DATABASE_URL=<Your env>
-
-NEXTAUTH_SECRET=<Your env>
-NEXTAUTH_URL=<Your env>
-
-EMAIL_SERVER_USER=<Your env>
-EMAIL_SERVER_PASSWORD=<Your env>
-EMAIL_SERVER_HOST=<Your env>
-EMAIL_SERVER_PORT=<Your env>
-EMAIL_FROM=<Your env>
-```
-
-5. Run the development server
+4. Run the development server
 
 ```sh
 yarn dev

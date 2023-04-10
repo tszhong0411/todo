@@ -1,132 +1,90 @@
 'use client'
 
-import { Task } from '@prisma/client'
-import { IconCheck, IconX } from '@tabler/icons-react'
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { IconX } from '@tabler/icons-react'
 import clsx from 'clsx'
-import { User } from 'next-auth'
 import React from 'react'
-import { toast } from 'react-hot-toast'
 
-import Form from './Form'
-
-type TodoProps = {
-  user: User
+type TodoItem = {
+  id: number
+  text: string
+  completed: boolean
 }
 
-const Todo = (props: TodoProps) => {
-  const { user } = props
+const Todo = () => {
+  const [todos, setTodos] = React.useState<TodoItem[]>([])
 
-  const queryClient = useQueryClient()
+  React.useEffect(() => {
+    const savedTodos = localStorage.getItem('todos')
+    if (savedTodos) {
+      setTodos(JSON.parse(savedTodos))
+    }
+  }, [])
 
-  const { data: tasks, isLoading } = useQuery<Task[]>({
-    queryKey: ['tasks'],
-    queryFn: () =>
-      fetch(`/api/tasks?id=${user.id}`, {
-        cache: 'no-store',
-      }).then((res) => res.json()),
-  })
+  React.useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos))
+  }, [todos])
 
-  const { mutate, isLoading: isMutating } = useMutation({
-    mutationFn: async ({
-      id,
-      action,
-    }: {
-      id: string
-      action: 'PUT' | 'DELETE'
-    }) => {
-      const TEXT = {
-        loading: {
-          PUT: '更新中 ...',
-          DELETE: '刪除中 ...',
-        },
-        success: {
-          PUT: '更新成功',
-          DELETE: '刪除成功',
-        },
-      }
+  const handleAddTodo = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const text = event.currentTarget.todo.value
+    setTodos([...todos, { id: Date.now(), text, completed: false }])
+    event.currentTarget.todo.value = ''
+  }
 
-      const loading = toast.loading(TEXT.loading[action])
+  const handleCompleteTodo = (id: number) => {
+    const newTodos = todos.map((todo) =>
+      todo.id === id ? { ...todo, completed: !todo.completed } : todo
+    )
+    setTodos(newTodos)
+  }
 
-      const res = await fetch(`/api/tasks`, {
-        method: action,
-        body: JSON.stringify({ id }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-
-      if (!res.ok) {
-        toast.dismiss(loading)
-        toast.error('發生了錯誤')
-
-        return
-      }
-
-      toast.dismiss(loading)
-      toast.success(TEXT.success[action])
-      queryClient.invalidateQueries({ queryKey: ['tasks'] })
-    },
-  })
+  const handleDeleteTodo = (id: number) => {
+    const newTodos = todos.filter((todo) => todo.id !== id)
+    setTodos(newTodos)
+  }
 
   return (
-    <>
-      <h1 className='text-center text-4xl font-bold'>待辦事項</h1>
-      <Form />
-      <div className='space-y-2'>
-        {isLoading ? (
-          <>
-            {Array.from(Array(8).keys()).map((i) => (
-              <div
-                key={i}
-                className='h-14 w-full animate-pulse rounded-lg bg-zinc-200 shadow-md dark:bg-zinc-800'
-              />
-            ))}
-          </>
-        ) : (
-          tasks?.map((task) => {
-            const { text, id, completed } = task
-
-            return (
-              <div
-                key={id}
-                className={clsx(
-                  'flex items-center justify-between rounded-lg bg-zinc-800 p-4 shadow-md',
-                  {
-                    'pointer-events-none select-none contrast-50': isMutating,
-                  }
-                )}
-              >
-                <div className='flex items-center justify-center gap-2'>
-                  <button
-                    className={clsx(
-                      completed ? 'text-green-500' : 'text-white'
-                    )}
-                    onClick={() => mutate({ id, action: 'PUT' })}
-                  >
-                    <IconCheck strokeWidth={5} />
-                  </button>
-                  <div className={clsx(completed && 'line-through')}>
-                    {text}
-                  </div>
-                </div>
-                <button
-                  className='text-red-400'
-                  onClick={() =>
-                    mutate({
-                      id,
-                      action: 'DELETE',
-                    })
-                  }
-                >
-                  <IconX strokeWidth={5} />
-                </button>
-              </div>
-            )
-          })
-        )}
+    <div className='space-y-8'>
+      <h1 className='text-center text-3xl font-bold'>Todo List</h1>
+      <form onSubmit={handleAddTodo} className='flex items-center gap-2'>
+        <input
+          type='text'
+          name='todo'
+          className='w-full rounded-lg border border-accent-2 bg-hong-bg py-2 px-4 transition-colors duration-300 hover:border-white focus:outline-none'
+          placeholder='Add a new todo...'
+        />
+        <button
+          type='submit'
+          className='rounded-lg border border-white bg-white py-2 px-4 font-bold text-black transition-colors duration-300 hover:bg-black hover:text-white'
+        >
+          Add
+        </button>
+      </form>
+      <div className='space-y-4'>
+        {todos.map((todo) => (
+          <div
+            key={todo.id}
+            className={clsx(
+              'flex h-12 items-center justify-between rounded-lg border border-accent-2 py-2 px-4',
+              {
+                ['text-gray-400 line-through']: todo.completed,
+              }
+            )}
+          >
+            <button onClick={() => handleCompleteTodo(todo.id)} type='button'>
+              {todo.text}
+            </button>
+            <button
+              onClick={() => handleDeleteTodo(todo.id)}
+              className='rounded-lg bg-red-600 p-1 transition-colors duration-300 hover:bg-red-700'
+              type='button'
+            >
+              <IconX />
+            </button>
+          </div>
+        ))}
       </div>
-    </>
+    </div>
   )
 }
 

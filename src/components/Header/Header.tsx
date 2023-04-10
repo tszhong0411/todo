@@ -1,7 +1,5 @@
 import Image from 'next/image'
 
-import SignOutButton from './SignOutButton'
-
 const Header = () => {
   return (
     <header className='relative flex h-16 w-full items-center justify-center'>
@@ -16,7 +14,6 @@ const Header = () => {
         />
         Todo
       </div>
-      <SignOutButton />
     </header>
   )
 }

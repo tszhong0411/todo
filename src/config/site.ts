@@ -1,22 +1,25 @@
 import { IconDescriptor } from 'next/dist/lib/metadata/types/metadata-types'
 
-import { isProduction } from '@/lib/constants'
-
 type Site = {
   url: string
   title: string
   name: string
+  keywords: string[]
   titleTemplate: string
   description: string
   favicons: IconDescriptor[]
 }
 
 export const site: Site = {
-  url: isProduction ? 'https://todo.honghong.me' : 'http://localhost:3000',
+  url:
+    process.env.NODE_ENV === 'production'
+      ? 'https://todo.honghong.me'
+      : 'http://localhost:3000',
   title: '小康 Todo',
   name: '小康',
+  keywords: ['Todo', '小康', '小康 Todo'],
   titleTemplate: '- 小康 Todo',
-  description: '每個 Web 開發人員都會建立的項目 - Todo',
+  description: 'The project that every web developer will create - Todo.',
   favicons: [
     {
       rel: 'icon',
