@@ -64,14 +64,17 @@ const Todo = () => {
         {todos.map((todo) => (
           <div
             key={todo.id}
-            className={clsx(
-              'flex h-12 items-center justify-between rounded-lg border border-accent-2 py-2 px-4',
-              {
-                ['text-gray-400 line-through']: todo.completed,
-              }
-            )}
+            className={
+              'flex h-12 items-center justify-between rounded-lg border border-accent-2 py-2 px-4'
+            }
           >
-            <button onClick={() => handleCompleteTodo(todo.id)} type='button'>
+            <button
+              onClick={() => handleCompleteTodo(todo.id)}
+              className={clsx({
+                ['text-gray-400 line-through']: todo.completed,
+              })}
+              type='button'
+            >
               {todo.text}
             </button>
             <button
