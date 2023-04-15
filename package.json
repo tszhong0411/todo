@@ -22,14 +22,18 @@
   },
   "prettier": "@tszhong0411/prettier-config",
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.0.3",
     "@tabler/icons-react": "^2.11.0",
     "@vercel/analytics": "^0.1.11",
     "clsx": "^1.2.1",
+    "firebase": "^9.19.1",
     "next": "13.2.5-canary.17",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-firebase-hooks": "^5.1.1",
     "react-hot-toast": "^2.4.0",
-    "sharp": "^0.32.0"
+    "sharp": "^0.32.0",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.5.0",
@@ -40,6 +44,7 @@
     "@types/node": "^18.15.9",
     "@types/react": "^18.0.29",
     "@types/react-dom": "^18.0.11",
+    "@types/uuid": "^9.0.1",
     "autoprefixer": "^10.4.14",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.36.0",
