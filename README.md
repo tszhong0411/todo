@@ -17,6 +17,7 @@
 ## 🌍 todo.honghong.me
 
 - Framework: [Next.js](https://nextjs.org/)
+- Authentication & Database: [Firebase](https://firebase.google.com/)
 - Deployment: [Vercel](https://vercel.com)
 - Favicon: [realfavicongenerator](https://realfavicongenerator.net/)
 - Analytics: [Vercel](https://vercel.com/)
@@ -42,7 +43,20 @@ cd todo
 yarn
 ```
 
-4. Run the development server
+4. Create a `.env.local` file and input environment variables based on the `.env.example` file so that the project can run properly.
+
+```
+# Firebase
+# https://firebase.google.com/docs/web/setup
+NEXT_PUBLIC_FIREBASE_API_KEY=
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
+NEXT_PUBLIC_FIREBASE_APP_ID=
+```
+
+5. Run the development server
 
 ```sh
 yarn dev
