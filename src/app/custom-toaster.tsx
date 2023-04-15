@@ -7,7 +7,7 @@ const CustomToaster = () => {
     <Toaster
       position='bottom-right'
       toastOptions={{
-        className: 'bg-zinc-700 text-white border border-zinc-500',
+        className: '!bg-accent-1 !text-hong-fg !border !border-accent-2',
       }}
     />
   )
