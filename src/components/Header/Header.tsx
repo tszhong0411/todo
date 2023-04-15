@@ -1,4 +1,9 @@
+'use client'
+
+import { signOut } from 'firebase/auth'
 import Image from 'next/image'
+
+import { auth } from '@/lib/firebase/app'
 
 const Header = () => {
   return (
@@ -14,6 +19,13 @@ const Header = () => {
         />
         Todo
       </div>
+      <button
+        type='button'
+        className='absolute right-4 rounded-lg border border-white bg-white px-2.5 py-1 text-black transition-colors duration-300 hover:bg-black hover:text-white'
+        onClick={() => signOut(auth)}
+      >
+        Logout
+      </button>
     </header>
   )
 }
