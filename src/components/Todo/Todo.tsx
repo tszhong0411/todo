@@ -122,12 +122,12 @@ const Todo = () => {
                 <div
                   key={todo.id}
                   className={
-                    'flex h-12 items-center justify-between rounded-lg border border-accent-2 py-2 px-4'
+                    'min-h-12 flex items-center justify-between space-x-2 rounded-lg border border-accent-2 py-2 px-4'
                   }
                 >
                   <button
                     onClick={() => handleCompleteTodo(todo.id)}
-                    className={clsx({
+                    className={clsx('break-all text-left', {
                       ['text-gray-400 line-through']: todo.completed,
                     })}
                     type='button'
