@@ -1,6 +1,7 @@
 'use client'
 
 import { IconX } from '@tabler/icons-react'
+import { Button, Input } from '@tszhong0411/ui'
 import clsx from 'clsx'
 import { doc, onSnapshot, setDoc } from 'firebase/firestore'
 import React from 'react'
@@ -10,8 +11,7 @@ import { v4 as uuidv4 } from 'uuid'
 
 import { auth, firestore } from '@/lib/firebase/app'
 
-import AuthModal from '../AuthModal'
-import Spinner from '../Spinner'
+import AuthModal from './auth-modal'
 
 type TodoItem = {
   id: string
@@ -26,9 +26,9 @@ const Todo = () => {
   const [open, setOpen] = React.useState(false)
 
   React.useEffect(() => {
-    if (!user) return setOpen(true)
+    if (!user && !loading) return setOpen(true)
     setOpen(false)
-  }, [user])
+  }, [loading, user])
 
   React.useEffect(() => {
     if (user) {
@@ -94,35 +94,27 @@ const Todo = () => {
   return (
     <>
       {loading ? (
-        <div className='flex h-[calc(100vh-64px-56px-192px)] items-center justify-center'>
-          <Spinner />
-        </div>
+        <p>Fetching user data ...</p>
       ) : (
         <>
           <div className='space-y-8'>
             <h1 className='text-center text-3xl font-bold'>Todo List</h1>
             <form onSubmit={handleAddTodo} className='flex items-center gap-2'>
-              <input
+              <Input
                 type='text'
-                name='todo'
-                className='w-full rounded-lg border border-accent-2 bg-hong-bg py-2 px-4 transition-colors duration-300 hover:border-white focus:outline-none'
-                placeholder='Add a new todo...'
+                placeholder='Add a new todo ...'
+                className='w-full'
                 value={value}
-                onChange={(event) => setValue(event.target.value)}
+                onChange={(e) => setValue(e.target.value)}
               />
-              <button
-                type='submit'
-                className='rounded-lg border border-white bg-white py-2 px-4 font-bold text-black transition-colors duration-300 hover:bg-black hover:text-white'
-              >
-                Add
-              </button>
+              <Button type='submit'>Add</Button>
             </form>
             <div className='space-y-4'>
               {todos.map((todo) => (
                 <div
                   key={todo.id}
                   className={
-                    'min-h-12 flex items-center justify-between space-x-2 rounded-lg border border-accent-2 py-2 px-4'
+                    'min-h-12 flex items-center justify-between space-x-2 rounded-lg border border-accent-2 px-4 py-2'
                   }
                 >
                   <button

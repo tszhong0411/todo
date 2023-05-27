@@ -5,16 +5,16 @@ import { Inter, Noto_Sans_TC } from 'next/font/google'
 import React from 'react'
 import '@/styles/globals.css'
 
-import Footer from '@/components/Footer'
-import Header from '@/components/Header'
+import Footer from '@/components/footer'
+import Header from '@/components/header'
 
 import { site } from '@/config/site'
 
 import CustomToaster from './custom-toaster'
 
-import { WithChildren } from '@/types'
-
-type RootLayoutProps = WithChildren
+type RootLayoutProps = {
+  children: React.ReactNode
+}
 
 export const metadata: Metadata = {
   title: {
@@ -91,9 +91,13 @@ const RootLayout = (props: RootLayoutProps) => {
   return (
     <html
       lang='en-US'
-      className={clsx(inter.variable, notoSansTC.variable, 'scroll-smooth')}
+      className={clsx(
+        inter.variable,
+        notoSansTC.variable,
+        'dark scroll-smooth'
+      )}
     >
-      <body className='bg-hong-bg font-default text-hong-fg'>
+      <body className='bg-accent-bg font-default text-accent-fg'>
         <Header />
         <main className='relative mx-auto min-h-[calc(100vh-64px-56px)] max-w-4xl px-8 py-24'>
           {children}
