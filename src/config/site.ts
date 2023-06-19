@@ -15,10 +15,10 @@ export const site: Site = {
     process.env.NODE_ENV === 'production'
       ? 'https://todo.honghong.me'
       : 'http://localhost:3000',
-  title: '小康 Todo',
-  name: '小康',
-  keywords: ['Todo', '小康', '小康 Todo'],
-  titleTemplate: '- 小康 Todo',
+  title: 'Todo',
+  name: 'Hong',
+  keywords: ['Todo', 'Hong'],
+  titleTemplate: '- Todo - Hong',
   description: 'The project that every web developer will create - Todo.',
   favicons: [
     {
