@@ -18,7 +18,7 @@ export const site: Site = {
   title: 'Todo',
   name: 'Hong',
   keywords: ['Todo', 'Hong'],
-  titleTemplate: '- Todo - Hong',
+  titleTemplate: '- Todo',
   description: 'The project that every web developer will create - Todo.',
   favicons: [
     {
