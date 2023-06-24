@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, Logo } from '@tszhong0411/ui'
+import { Button, Logo } from '@codewithhong/ui'
 import { signOut } from 'firebase/auth'
 
 import { auth } from '@/lib/firebase/app'
