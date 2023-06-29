@@ -1,7 +1,7 @@
 'use client'
 
-import { Button, Input } from '@codewithhong/ui'
 import { IconX } from '@tabler/icons-react'
+import { Button, Input } from '@tszhong0411/ui'
 import clsx from 'clsx'
 import { doc, onSnapshot, setDoc } from 'firebase/firestore'
 import React from 'react'

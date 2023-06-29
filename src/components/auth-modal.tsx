@@ -1,4 +1,4 @@
-import { Button, Dialog, DialogContent, DialogTitle } from '@codewithhong/ui'
+import { Button, Dialog, DialogContent, DialogTitle } from '@tszhong0411/ui'
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth'
 
 import { auth } from '@/lib/firebase/app'
