@@ -1,4 +1,3 @@
-import { Analytics } from '@vercel/analytics/react'
 import clsx from 'clsx'
 import type { Metadata } from 'next'
 import { Inter, Noto_Sans_TC } from 'next/font/google'
@@ -104,7 +103,6 @@ const RootLayout = (props: RootLayoutProps) => {
         </main>
         <Footer />
         <CustomToaster />
-        <Analytics />
       </body>
     </html>
   )
