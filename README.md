@@ -20,7 +20,6 @@
 - Authentication & Database: [Firebase](https://firebase.google.com/)
 - Deployment: [Vercel](https://vercel.com)
 - Favicon: [realfavicongenerator](https://realfavicongenerator.net/)
-- Analytics: [Vercel](https://vercel.com/)
 - Styling: [Tailwindcss](https://tailwindcss.com)
 
 ## 👋 Running Locally
