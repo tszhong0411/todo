@@ -2,7 +2,7 @@
 
 import { IconX } from '@tabler/icons-react'
 import { Button, Input } from '@tszhong0411/ui'
-import clsx from 'clsx'
+import { cx } from '@tszhong0411/utils'
 import { doc, onSnapshot, setDoc } from 'firebase/firestore'
 import React from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
@@ -70,7 +70,7 @@ const Todo = () => {
   const handleCompleteTodo = async (id: string) => {
     const todosDocRef = doc(firestore, 'users', user?.uid as string)
     const newTodos = todos.map((todo) =>
-      todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      todo.id === id ? { ...todo, completed: !todo.completed } : todo,
     )
 
     await setDoc(todosDocRef, {
@@ -119,7 +119,7 @@ const Todo = () => {
                 >
                   <button
                     onClick={() => handleCompleteTodo(todo.id)}
-                    className={clsx('break-all text-left', {
+                    className={cx('break-all text-left', {
                       ['text-gray-400 line-through']: todo.completed,
                     })}
                     type='button'
