@@ -1,20 +1,8 @@
-<h1 align="center">
- Todo
-</h1>
-
 <p align="center">
-  <img src="https://socialify.git.ci/tszhong0411/todo/image?font=Inter&forks=1&issues=1&logo=https://honghong.me/images/projects/todo/logo.png&name=1&owner=1&pattern=Diagonal%20Stripes&pulls=1&stargazers=1&theme=Dark">
+  <img src="https://honghong.me/images/projects/todo/cover.png">
 </p>
 
-<p align="center">
-    <a href="https://todo.honghong.me" target="blank">View Online</a>
-    ·
-    <a href="https://github.com/tszhong0411/todo/issues/new/choose">Report Bug</a>
-    ·
-    <a href="https://github.com/tszhong0411/todo/issues/new/choose">Request New Feature</a>
-</p>
-
-## 🌍 todo.honghong.me
+## ⚡️ Tech Stack
 
 - Framework: [Next.js](https://nextjs.org/)
 - Authentication & Database: [Firebase](https://firebase.google.com/)
@@ -39,7 +27,7 @@ cd todo
 3. Install dependencies
 
 ```sh
-yarn
+pnpm
 ```
 
 4. Create a `.env.local` file and input environment variables based on the `.env.example` file so that the project can run properly.
@@ -58,7 +46,7 @@ NEXT_PUBLIC_FIREBASE_APP_ID=
 5. Run the development server
 
 ```sh
-yarn dev
+pnpm dev
 ```
 
 <hr>
