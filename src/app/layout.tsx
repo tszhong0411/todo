@@ -33,7 +33,7 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  manifest: '/static/favicon/site.webmanifest',
+  manifest: '/favicon/site.webmanifest',
   twitter: {
     title: site.name,
     card: 'summary_large_image',
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     locale: 'en-US',
     images: [
       {
-        url: 'https://honghong.me/static/images/projects/todo/cover.png',
+        url: 'https://honghong.me/images/projects/todo/cover.png',
         width: 1200,
         height: 630,
         alt: site.description,
@@ -61,11 +61,11 @@ export const metadata: Metadata = {
     ],
   },
   icons: {
-    icon: '/static/favicon/favicon.svg',
-    shortcut: '/static/favicon/favicon.svg',
+    icon: '/favicon/favicon.svg',
+    shortcut: '/favicon/favicon.svg',
     apple: [
       {
-        url: '/static/favicon/apple-touch-icon.png',
+        url: '/favicon/apple-touch-icon.png',
         sizes: '180x180',
         type: 'image/png',
       },

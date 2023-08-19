@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-  <img src="https://socialify.git.ci/tszhong0411/todo/image?font=Inter&forks=1&issues=1&logo=https://honghong.me/static/images/projects/todo/logo.png&name=1&owner=1&pattern=Diagonal%20Stripes&pulls=1&stargazers=1&theme=Dark">
+  <img src="https://socialify.git.ci/tszhong0411/todo/image?font=Inter&forks=1&issues=1&logo=https://honghong.me/images/projects/todo/logo.png&name=1&owner=1&pattern=Diagonal%20Stripes&pulls=1&stargazers=1&theme=Dark">
 </p>
 
 <p align="center">
