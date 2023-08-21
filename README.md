@@ -4,48 +4,43 @@
 
 ## ⚡️ Tech Stack
 
-- Framework: [Next.js](https://nextjs.org/)
-- Authentication & Database: [Firebase](https://firebase.google.com/)
-- Deployment: [Vercel](https://vercel.com)
-- Favicon: [realfavicongenerator](https://realfavicongenerator.net/)
-- Styling: [Tailwindcss](https://tailwindcss.com)
+| Name                      | Link                                                      |
+| ------------------------- | --------------------------------------------------------- |
+| Framework                 | [Next.js](https://nextjs.org/)                            |
+| Authentication & Database | [Firebase](https://firebase.google.com/)                  |
+| Deployment                | [Vercel](https://vercel.com)                              |
+| Favicon                   | [realfavicongenerator](https://realfavicongenerator.net/) |
+| Styling                   | [Tailwindcss](https://tailwindcss.com)                    |
 
-## 👋 Running Locally
+## 👋 Getting Started
+
+Follow these steps to run the project locally on your machine:
 
 1. Clone the repository
 
-```sh
+```bash
 git clone https://github.com/tszhong0411/todo.git
 ```
 
-2. Go to the project directory
+2. Navigate to the project directory
 
-```sh
+```bash
 cd todo
 ```
 
 3. Install dependencies
 
-```sh
+```bash
 pnpm
 ```
 
-4. Create a `.env.local` file and input environment variables based on the `.env.example` file so that the project can run properly.
+4. Configure environment variables
 
-```
-# Firebase
-# https://firebase.google.com/docs/web/setup
-NEXT_PUBLIC_FIREBASE_API_KEY=
-NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
-NEXT_PUBLIC_FIREBASE_PROJECT_ID=
-NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
-NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
-NEXT_PUBLIC_FIREBASE_APP_ID=
-```
+Create a `.env.local` file based on the provided `.env.example` file and fill in the necessary variables.
 
 5. Run the development server
 
-```sh
+```bash
 pnpm dev
 ```
 
