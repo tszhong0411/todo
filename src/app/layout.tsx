@@ -1,15 +1,15 @@
-import { cx } from '@tszhong0411/utils'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import React from 'react'
 import '@/styles/globals.css'
 
+import { cn } from '@/lib/utils'
+
 import Footer from '@/components/footer'
 import Header from '@/components/header'
+import Providers from '@/components/providers'
 
 import { site } from '@/config/site'
-
-import Providers from './providers'
 
 type RootLayoutProps = {
   children: React.ReactNode
@@ -83,7 +83,7 @@ const RootLayout = (props: RootLayoutProps) => {
   const { children } = props
 
   return (
-    <html lang='en-US' className={cx(inter.variable, 'dark scroll-smooth')}>
+    <html lang='en-US' className={cn(inter.variable, 'dark scroll-smooth')}>
       <body className='bg-accent-bg font-default text-accent-fg'>
         <Providers>
           <Header />

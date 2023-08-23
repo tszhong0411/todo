@@ -1,7 +1,10 @@
-import { Button, Dialog, DialogContent, DialogTitle } from '@tszhong0411/ui'
+import { Loader2 } from 'lucide-react'
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth'
 
 import { auth } from '@/lib/firebase/app'
+
+import { Button } from './ui/button'
+import { Dialog, DialogContent, DialogTitle } from './ui/dialog'
 
 type AuthModalProps = {
   open: boolean
@@ -20,10 +23,10 @@ const AuthModal = (props: AuthModalProps) => {
         <Button
           type='button'
           onClick={() => signInWithGoogle()}
-          loading={loading}
           disabled={loading}
         >
-          <div>Sign in with Google</div>
+          {loading && <Loader2 size={16} className='mr-2 animate-spin' />}
+          Sign in with Google
         </Button>
       </DialogContent>
     </Dialog>

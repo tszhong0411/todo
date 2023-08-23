@@ -1,17 +1,18 @@
 'use client'
 
-import { IconX } from '@tabler/icons-react'
-import { Button, Input } from '@tszhong0411/ui'
-import { cx } from '@tszhong0411/utils'
 import { doc, onSnapshot, setDoc } from 'firebase/firestore'
+import { X } from 'lucide-react'
 import React from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { toast } from 'react-hot-toast'
 import { v4 as uuidv4 } from 'uuid'
 
 import { auth, firestore } from '@/lib/firebase/app'
+import { cn } from '@/lib/utils'
 
 import AuthModal from './auth-modal'
+import { Button } from './ui/button'
+import { Input } from './ui/input'
 
 type TodoItem = {
   id: string
@@ -114,12 +115,12 @@ const Todo = () => {
                 <div
                   key={todo.id}
                   className={
-                    'min-h-12 flex items-center justify-between space-x-2 rounded-lg border border-accent-2 px-4 py-2'
+                    'min-h-12 border-accent-2 flex items-center justify-between space-x-2 rounded-lg border px-4 py-2'
                   }
                 >
                   <button
                     onClick={() => handleCompleteTodo(todo.id)}
-                    className={cx('break-all text-left', {
+                    className={cn('break-all text-left', {
                       ['text-gray-400 line-through']: todo.completed,
                     })}
                     type='button'
@@ -131,7 +132,7 @@ const Todo = () => {
                     className='rounded-lg bg-red-600 p-1 transition-colors duration-300 hover:bg-red-700'
                     type='button'
                   >
-                    <IconX />
+                    <X />
                   </button>
                 </div>
               ))}
