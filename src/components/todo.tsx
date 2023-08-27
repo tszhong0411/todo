@@ -115,7 +115,7 @@ const Todo = () => {
                 <div
                   key={todo.id}
                   className={
-                    'min-h-12 border-accent-2 flex items-center justify-between space-x-2 rounded-lg border px-4 py-2'
+                    'min-h-12 flex items-center justify-between space-x-2 rounded-lg border px-4 py-2'
                   }
                 >
                   <button

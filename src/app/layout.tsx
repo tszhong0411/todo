@@ -84,7 +84,7 @@ const RootLayout = (props: RootLayoutProps) => {
 
   return (
     <html lang='en-US' className={cn(inter.variable, 'dark scroll-smooth')}>
-      <body className='bg-accent-bg font-default text-accent-fg'>
+      <body className='font-default'>
         <Providers>
           <Header />
           <main className='relative mx-auto min-h-[calc(100vh-64px-56px)] max-w-4xl px-8 py-24'>
