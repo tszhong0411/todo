@@ -16,7 +16,7 @@ const Providers = (props: ProvidersProps) => {
       <Toaster
         position='bottom-right'
         toastOptions={{
-          className: '!bg-background !text-foreground !border',
+          className: '!bg-background !text-foreground !border'
         }}
       />
     </>

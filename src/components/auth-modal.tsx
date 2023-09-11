@@ -12,7 +12,7 @@ type AuthModalProps = {
 
 const AuthModal = (props: AuthModalProps) => {
   const { open } = props
-  const [signInWithGoogle, _, loading] = useSignInWithGoogle(auth)
+  const [signInWithGoogle, , loading] = useSignInWithGoogle(auth)
 
   return (
     <Dialog open={open}>

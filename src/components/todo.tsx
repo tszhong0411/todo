@@ -32,19 +32,21 @@ const Todo = () => {
   }, [loading, user])
 
   React.useEffect(() => {
-    if (user) {
-      const todosDocRef = doc(firestore, 'users', user?.uid as string)
+    let unsubscribe: () => void
 
-      const unsubscribe = onSnapshot(todosDocRef, (doc) => {
-        if (doc.exists() && doc.data()) {
-          setTodos(doc.data().todos)
+    if (user) {
+      const todosDocRef = doc(firestore, 'users', user?.uid)
+
+      unsubscribe = onSnapshot(todosDocRef, (d) => {
+        if (d.exists() && d.data()) {
+          setTodos(d.data().todos as TodoItem[])
         }
       })
-
-      return () => unsubscribe()
     }
 
-    return
+    return () => {
+      if (unsubscribe) unsubscribe()
+    }
   }, [user])
 
   const handleAddTodo = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -60,9 +62,9 @@ const Todo = () => {
         {
           id: uuidv4(),
           text: value,
-          completed: false,
-        },
-      ],
+          completed: false
+        }
+      ]
     })
 
     return setValue('')
@@ -71,14 +73,12 @@ const Todo = () => {
   const handleCompleteTodo = async (id: string) => {
     const todosDocRef = doc(firestore, 'users', user?.uid as string)
     const newTodos = todos.map((todo) =>
-      todo.id === id ? { ...todo, completed: !todo.completed } : todo,
+      todo.id === id ? { ...todo, completed: !todo.completed } : todo
     )
 
     await setDoc(todosDocRef, {
-      todos: newTodos,
+      todos: newTodos
     })
-
-    return
   }
 
   const handleDeleteTodo = async (id: string) => {
@@ -86,10 +86,8 @@ const Todo = () => {
     const newTodos = todos.filter((todo) => todo.id !== id)
 
     await setDoc(todosDocRef, {
-      todos: newTodos,
+      todos: newTodos
     })
-
-    return
   }
 
   return (
@@ -114,14 +112,12 @@ const Todo = () => {
               {todos.map((todo) => (
                 <div
                   key={todo.id}
-                  className={
-                    'min-h-12 flex items-center justify-between space-x-2 rounded-lg border px-4 py-2'
-                  }
+                  className='flex items-center justify-between space-x-2 rounded-lg border px-4 py-2'
                 >
                   <button
                     onClick={() => handleCompleteTodo(todo.id)}
                     className={cn('break-all text-left', {
-                      ['text-gray-400 line-through']: todo.completed,
+                      ['text-gray-400 line-through']: todo.completed
                     })}
                     type='button'
                   >
