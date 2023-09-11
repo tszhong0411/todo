@@ -31,7 +31,7 @@ cd todo
 3. Install dependencies
 
 ```bash
-pnpm
+bun install
 ```
 
 4. Configure environment variables
@@ -41,7 +41,7 @@ Create a `.env.local` file based on the provided `.env.example` file and fill in
 5. Run the development server
 
 ```bash
-pnpm dev
+bun run dev
 ```
 
 <hr>
