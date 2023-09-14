@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://honghong.me/images/projects/todo/cover.png">
+  <img src="./public/cover.png">
 </p>
 
 ## ⚡️ Tech Stack
@@ -8,7 +8,6 @@
 | ------------------------- | --------------------------------------------------------- |
 | Framework                 | [Next.js](https://nextjs.org/)                            |
 | Authentication & Database | [Firebase](https://firebase.google.com/)                  |
-| Deployment                | [Vercel](https://vercel.com)                              |
 | Favicon                   | [realfavicongenerator](https://realfavicongenerator.net/) |
 | Styling                   | [Tailwindcss](https://tailwindcss.com)                    |
 
